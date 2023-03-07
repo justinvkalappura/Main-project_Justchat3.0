@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'chat',
+    'channels',
     'profileapp',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -69,8 +71,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'justchat.wsgi.application'
-
+#WSGI_APPLICATION = 'justchat.wsgi.application'
+ASGI_APPLICATION = 'justchat.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -135,7 +137,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CHANNEL_LAYERS = {
     'default': {
-        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+        'BACKEND': "channels.layers.InMemoryChannelLayer",
         # 'CONFIG': {
         #     'hosts': [('127.0.0.1', 6379)],
         # }

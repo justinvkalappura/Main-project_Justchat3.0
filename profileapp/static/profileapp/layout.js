@@ -480,14 +480,36 @@ function display_comment(comment, container, new_comment=false) {
 }
 
 
-
-
-
-
 function goto_register() {
     window.location.href = '/n/register';
 }
 
 function goto_login() {
     window.location.href = '/n/login';
+}
+
+
+function validatee() {
+    var pass=document.getElementById('password').value;
+    var email=document.getElementById('email').value;
+    
+    if (grecaptcha.getResponse() == "") {
+
+        document.getElementById('g-recaptcha-error').textContent = "Enter the Captcha";
+        document.getElementById("g-recaptcha-error").style.color = "red";
+        return false;
+    }
+    else if (grecaptcha.getResponse() == "") {
+        alert(response)
+        document.getElementById('g-recaptcha-error').innerHTML =
+            '<span style="color:red;">This field is required.</span>';
+        return false;
+    } else if(!emailValidation(email)){
+        document.getElementById('email').textContent="please enter the email";
+        document.getElementById('email').style.color="red";
+        return false
+    }
+    else {
+        return true;
+    }
 }

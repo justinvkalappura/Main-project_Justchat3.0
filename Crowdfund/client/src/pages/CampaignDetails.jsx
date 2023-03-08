@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
 
 import { useStateContext } from '../context';
-import { CountBox, CustomButton, Loader } from '../components';
+import { CountBox, CustomButton, Loader, Navbar } from '../components';
 import { calculateBarPercentage, daysLeft } from '../utils';
 import { thirdweb } from '../assets';
 
@@ -38,6 +38,8 @@ const CampaignDetails = () => {
   }
 
   return (
+    <>
+    <Navbar/>
     <div>
       {isLoading && <Loader />}
       <div className="w-full flex md:flex-row flex-col mt-10 gap-[30px]">
@@ -129,6 +131,7 @@ const CampaignDetails = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
